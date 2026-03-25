@@ -27,14 +27,15 @@ else echo "Ошибка при удалении файла<br>";
 $file1 = 'folder/world.txt';
 $file2 = 'folder/mir.txt';
 
-if (file_exists($file1) && file_exists($file2)) echo "Файлы существуют";
-elseif (file_exists($file1)) echo "Только файл '$file1' существует";
-elseif (file_exists($file2)) echo "Только файл '$file2' существует";
-else echo "Файлы не существуют";
+if (file_exists($file1) && file_exists($file2)) echo "Файлы существуют<br>";
+elseif (file_exists($file1)) echo "Только файл '$file1' существует<br>";
+elseif (file_exists($file2)) echo "Только файл '$file2' существует<br>";
+else echo "Файлы не существуют<br>";
 
 //часть 2
 
-mkdir("/var/www/mysite.ru/test", 0700) or die("Ошибка при создании файла<br>");
+mkdir("/var/www/mysite.ru/test", 0700);
+rename("/var/www/mysite.ru/test", "/var/www/mysite.ru/www") or die("Ошибка переименования папки");
 
 fclose($file);
 
