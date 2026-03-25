@@ -49,4 +49,7 @@ foreach ($folders as $folder) {
     echo "Создана: test/$folder<br>";
 }
 
+$files = glob("*.jpg");
+foreach ($files as $file) echo "<img src=\"$file\" width=\"200\"> <a>$file</a> <br>";
+
 ?>
