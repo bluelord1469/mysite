@@ -2,6 +2,7 @@
 $file = fopen("test.txt", 'w') or die("Не удалось открыть файл<br>");
 $str = "Привет, мир!";
 fputs($file, $str);
+fclose($file);
 
 $text = htmlentities(file_get_contents("test.txt"));
 echo $text . "<br>";
@@ -32,13 +33,20 @@ elseif (file_exists($file1)) echo "Только файл '$file1' существ
 elseif (file_exists($file2)) echo "Только файл '$file2' существует<br>";
 else echo "Файлы не существуют<br>";
 
-fclose($file);
-
 //часть 2
 
-mkdir("/var/www/mysite.ru/test", 0700);
-rename("/var/www/mysite.ru/test", "/var/www/mysite.ru/www") or die("Ошибка переименования папки");
+//mkdir("/var/www/mysite.ru/test", 0777);
+//rename("/var/www/mysite.ru/test", "/var/www/mysite.ru/www");
 
-rmdir("www") or die("Ошибка при удалении папки");
+//rmdir("/var/www/mysite.ru/www");
+
+$folders = ["images", "pages", "scripts"];
+
+mkdir("test", 0777);
+
+foreach ($folders as $folder) {
+    mkdir("test/" . $folder, 0777);
+    echo "Создана: test/$folder<br>";
+}
 
 ?>
