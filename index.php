@@ -32,6 +32,10 @@ elseif (file_exists($file1)) echo "Только файл '$file1' существ
 elseif (file_exists($file2)) echo "Только файл '$file2' существует";
 else echo "Файлы не существуют";
 
+//часть 2
+
+mkdir("/var/www/mysite.ru/test", 0700) or die("Ошибка при создании файла<br>");
+
 fclose($file);
 
 ?>
