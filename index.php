@@ -24,6 +24,14 @@ echo $fsize/1024/1024/1024 . " гигабайт<br>";
 if (unlink("folder/world.txt")) echo "Файл удален<br>";
 else echo "Ошибка при удалении файла<br>";
 
+$file1 = 'folder/world.txt';
+$file2 = 'folder/mir.txt';
+
+if (file_exists($file1) && file_exists($file2)) echo "Файлы существуют";
+elseif (file_exists($file1)) echo "Только файл '$file1' существует";
+elseif (file_exists($file2)) echo "Только файл '$file2' существует";
+else echo "Файлы не существуют";
+
 fclose($file);
 
 ?>
