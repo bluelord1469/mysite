@@ -3,11 +3,9 @@ $file = fopen("test.txt", 'w') or die("Не удалось открыть фай
 $str = "Привет, мир!";
 fputs($file, $str);
 
-//while (!feof($file))
-//{
-//$text = fgets($file, strlen($file));
-//echo $text . "<br>"
-//}
+$text = htmlentities(file_get_contents("test.txt"));
+echo $text . "<br>";
+
 fclose($file);
 
 ?>
