@@ -1,21 +1,21 @@
 <?php
-//function checkOpenFile($filename, $rights)
-//{
-//if (!file_exists($filename)) throw new Exception("Файл не существует");
-//$file = fopen($filename, $rights);
-//return $file;
-//}
+function checkOpenFile($filename, $rights)
+{
+$file = fopen($filename, $rights);
+if ($file === false) throw new ErrorException("Файл не удалось открыть");
+return $file;
+}
 
-//try
-//{
-//$file = checkOpenFile("file.txt", "r");
-//echo "Файл открыт";
-//fclose($file);
-//}
-//catch (Exception $ex)
-//{
-//echo $ex->getMessage();
-//}
+try
+{
+$file = checkOpenFile("file.txt", "r");
+echo "Файл открыт";
+fclose($file);
+}
+catch (ErrorException $ex)
+{
+echo $ex->getMessage();
+}
 
 //function checkDivisionByZero($num1, $num2)
 //{
@@ -130,19 +130,19 @@
 //echo date('Y.m.d', strtotime('+1 year', $timestamp)) . "<br>";
 //echo date('Y.m.d', strtotime('-3 days', $timestamp)) . "<br><br>";
 
-$today = strtotime(date('Y-m-d'));
-$newYear = strtotime(date('Y') . '-12-31');
+//$today = strtotime(date('Y-m-d'));
+//$newYear = strtotime(date('Y') . '-12-31');
 
-if ($today <= $newYear) 
-{
-$days = ($newYear - $today) / (60 * 60 * 24);
-} 
-else 
-{
-$nextNewYear = strtotime((date('Y') + 1) . '-12-31');
-$days = ($nextNewYear - $today) / (60 * 60 * 24);
-}
+//if ($today <= $newYear) 
+//{
+//$days = ($newYear - $today) / (60 * 60 * 24);
+//} 
+//else 
+//{
+//$nextNewYear = strtotime((date('Y') + 1) . '-12-31');
+//$days = ($nextNewYear - $today) / (60 * 60 * 24);
+//}
 
-echo "До Нового Года осталось: " . ceil($days) . " дней";
+//echo "До Нового Года осталось: " . ceil($days) . " дней";
 
 ?>
