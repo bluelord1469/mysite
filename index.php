@@ -17,24 +17,42 @@
 //echo $ex->getMessage();
 //}
 
-function checkDivisionByZero($num1, $num2)
+//function checkDivisionByZero($num1, $num2)
+//{
+//if ($num2 == 0) throw new Exception("Деление на ноль невозможно!");
+//return $num1/$num2;
+//}
+
+//try
+//{
+//$res = checkDivisionByZero(13, 0);
+//echo $res . "<br>";
+//}
+//catch (Exception $ex)
+//{
+//echo $ex->getMessage();
+//$err = $ex->getMessage();
+//$errFile = fopen("errFile.txt", "a");
+//fputs($errFile, $err);
+//fclose($errFile);
+//}
+
+$countries = ['Spain' => 'Madrid', 'Russia' => 'Moscow'];
+
+function checkCountry($arr, $key)
 {
-if ($num2 == 0) throw new Exception("Деление на ноль невозможно!");
-return $num1/$num2;
+if(!array_key_exists($key, $arr)) throw new Exception("Элемент не существует в массиве!");
+return $arr[$key];
 }
 
 try
 {
-$res = checkDivisionByZero(13, 0);
-echo $res . "<br>";
+$capital = checkCountry($countries, 'Germany');
+echo "Столица Германии: " . $capital;
 }
 catch (Exception $ex)
 {
 echo $ex->getMessage();
-$err = $ex->getMessage();
-$errFile = fopen("errFile.txt", "a");
-fputs($errFile, $err);
-fclose($errFile);
 }
 
 ?>
