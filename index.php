@@ -63,6 +63,9 @@
 
 //echo date('Y.m.d H:i:s');
 
-$date = mktime(0, 0, 0, 9, 1, date('Y'));
-echo date('Y.m.d', $date);
+//$date = mktime(0, 0, 0, 9, 1, date('Y'));
+//echo date('Y.m.d', $date);
+
+$date = mktime(0, 0, 0, 2, 2, 2000);
+echo date("l", $date);
 ?>
