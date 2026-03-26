@@ -123,11 +123,26 @@
 //$date = '2026-03-26';
 //echo date('d-m-Y', strtotime($date));
 
-$timestamp = strtotime('2000-02-03');
+//$timestamp = strtotime('2000-02-03');
 
-echo date('Y.m.d', strtotime('+2 days', $timestamp)) . "<br>";
-echo date('Y.m.d', strtotime('+1 month +3 days', $timestamp)) . "<br>";
-echo date('Y.m.d', strtotime('+1 year', $timestamp)) . "<br>";
-echo date('Y.m.d', strtotime('-3 days', $timestamp)) . "<br><br>";
+//echo date('Y.m.d', strtotime('+2 days', $timestamp)) . "<br>";
+//echo date('Y.m.d', strtotime('+1 month +3 days', $timestamp)) . "<br>";
+//echo date('Y.m.d', strtotime('+1 year', $timestamp)) . "<br>";
+//echo date('Y.m.d', strtotime('-3 days', $timestamp)) . "<br><br>";
+
+$today = strtotime(date('Y-m-d'));
+$newYear = strtotime(date('Y') . '-12-31');
+
+if ($today <= $newYear) 
+{
+$days = ($newYear - $today) / (60 * 60 * 24);
+} 
+else 
+{
+$nextNewYear = strtotime((date('Y') + 1) . '-12-31');
+$days = ($nextNewYear - $today) / (60 * 60 * 24);
+}
+
+echo "До Нового Года осталось: " . ceil($days) . " дней";
 
 ?>
