@@ -1,41 +1,41 @@
 <?php
-function checkOpenFile($filename, $rights)
-{
-$file = fopen($filename, $rights);
-if ($file === false) throw new ErrorException("Файл не удалось открыть");
-return $file;
-}
-
-try
-{
-$file = checkOpenFile("file.txt", "r");
-echo "Файл открыт";
-fclose($file);
-}
-catch (ErrorException $ex)
-{
-echo $ex->getMessage();
-}
-
-//function checkDivisionByZero($num1, $num2)
+//function checkOpenFile($filename, $rights)
 //{
-//if ($num2 == 0) throw new Exception("Деление на ноль невозможно!");
-//return $num1/$num2;
+//$file = fopen($filename, $rights);
+//if ($file === false) throw new ErrorException("Файл не удалось открыть");
+//return $file;
 //}
 
 //try
 //{
-//$res = checkDivisionByZero(13, 0);
-//echo $res . "<br>";
+//$file = checkOpenFile("file.txt", "r");
+//echo "Файл открыт";
+//fclose($file);
 //}
-//catch (Exception $ex)
+//catch (ErrorException $ex)
 //{
 //echo $ex->getMessage();
-//$err = $ex->getMessage();
-//$errFile = fopen("errFile.txt", "a");
-//fputs($errFile, $err);
-//fclose($errFile);
 //}
+
+function checkDivisionByZero($num1, $num2)
+{
+if ($num2 == 0) throw new DivisionByZeroError("Деление на ноль невозможно!");
+return $num1/$num2;
+}
+
+try
+{
+$res = checkDivisionByZero(13, 0);
+echo $res . "<br>";
+}
+catch (DivisionByZeroError $ex)
+{
+echo $ex->getMessage();
+$err = $ex->getMessage();
+$errFile = fopen("errFile.txt", "a");
+fputs($errFile, $err);
+fclose($errFile);
+}
 
 //$countries = ['Spain' => 'Madrid', 'Russia' => 'Moscow'];
 
