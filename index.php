@@ -69,22 +69,53 @@
 //$date = mktime(0, 0, 0, 2, 2, 2000);
 //echo date("l", $date);
 
-$week = [
-    1 => 'Понедельник',
-    2 => 'Вторник',
-    3 => 'Среда',
-    4 => 'Четверг',
-    5 => 'Пятница',
-    6 => 'Суббота',
-    7 => 'Воскресенье'
-];
+//$week = [
+    //1 => 'Понедельник',
+    //2 => 'Вторник',
+    //3 => 'Среда',
+    //4 => 'Четверг',
+    //5 => 'Пятница',
+    //6 => 'Суббота',
+    //7 => 'Воскресенье'
+//];
 
-echo "Сегодня: " . $week[date('N')] . "<br>";
+//echo "Сегодня: " . $week[date('N')] . "<br>";
 
-$dayNumber = date('N', strtotime('2016-06-12'));
-echo "12.06.2016 был: " . $week[$dayNumber] . "<br>";
+//$dayNumber = date('N', strtotime('2016-06-12'));
+//echo "12.06.2016 был: " . $week[$dayNumber] . "<br>";
 
-$birthdayNumber = date('N', strtotime('2008-01-20'));
-echo date('d.m.Y', strtotime('2008-01-20')) . " был: " . $week[$birthdayNumber];
-
+//$birthdayNumber = date('N', strtotime('2008-01-20'));
+//echo date('d.m.Y', strtotime('2008-01-20')) . " был: " . $week[$birthdayNumber];
 ?>
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Сравнение дат</title>
+</head>
+<body>
+<form method="POST">
+Первая дата (ГГГГ-ММ-ДД): <input type="text" name="date1" required><br><br>
+Вторая дата (ГГГГ-ММ-ДД): <input type="text" name="date2" required><br><br>
+<input type="submit" value="Сравнить">
+</form>
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+$date1 = $_POST['date1'];
+$date2 = $_POST['date2'];
+
+if (!empty($date1) && !empty($date2)) 
+{
+if ($date1 > $date2) {
+echo "Большая дата: " . $date1;
+} 
+elseif ($date1 < $date2) echo "Большая дата: " . $date2;
+else echo "Даты равны";
+} 
+else echo "Введите обе даты!";
+}
+?>
+</body>
+</html>
