@@ -37,22 +37,25 @@
 //fclose($errFile);
 //}
 
-$countries = ['Spain' => 'Madrid', 'Russia' => 'Moscow'];
+//$countries = ['Spain' => 'Madrid', 'Russia' => 'Moscow'];
 
-function checkCountry($arr, $key)
-{
-if(!array_key_exists($key, $arr)) throw new Exception("Элемент не существует в массиве!");
-return $arr[$key];
-}
+//function checkCountry($arr, $key)
+//{
+//if(!array_key_exists($key, $arr)) throw new Exception("Элемент не существует в массиве!");
+//return $arr[$key];
+//}
 
-try
-{
-$capital = checkCountry($countries, 'Germany');
-echo "Столица Германии: " . $capital;
-}
-catch (Exception $ex)
-{
-echo $ex->getMessage();
-}
+//try
+//{
+//$capital = checkCountry($countries, 'Germany');
+//echo "Столица Германии: " . $capital;
+//}
+//catch (Exception $ex)
+//{
+//echo $ex->getMessage();
+//}
 
+//часть 2
+
+echo mktime(10, 25, 0, 3, 15, 2025);
 ?>
