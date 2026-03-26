@@ -17,25 +17,25 @@
 //echo $ex->getMessage();
 //}
 
-function checkDivisionByZero($num1, $num2)
-{
-if ($num2 == 0) throw new DivisionByZeroError("Деление на ноль невозможно!");
-return $num1/$num2;
-}
+//function checkDivisionByZero($num1, $num2)
+//{
+//if ($num2 == 0) throw new DivisionByZeroError("Деление на ноль невозможно!");
+//return $num1/$num2;
+//}
 
-try
-{
-$res = checkDivisionByZero(13, 0);
-echo $res . "<br>";
-}
-catch (DivisionByZeroError $ex)
-{
-echo $ex->getMessage();
-$err = $ex->getMessage();
-$errFile = fopen("errFile.txt", "a");
-fputs($errFile, $err);
-fclose($errFile);
-}
+//try
+//{
+//$res = checkDivisionByZero(13, 0);
+//echo $res . "<br>";
+//}
+//catch (DivisionByZeroError $ex)
+//{
+//echo $ex->getMessage();
+//$err = $ex->getMessage();
+//$errFile = fopen("errFile.txt", "a");
+//fputs($errFile, $err);
+//fclose($errFile);
+//}
 
 //$countries = ['Spain' => 'Madrid', 'Russia' => 'Moscow'];
 
