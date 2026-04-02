@@ -16,6 +16,8 @@ public function getName() { return $this->name; }
 
 public function getAge() { return $this->age; }
 
+public function getSalary() { return $this->salary; }
+
 }
 
 $emp1 = new Employee("Detsel", 18, 100000);
@@ -30,5 +32,6 @@ echo $emp1->salary + $emp2->salary . "<br>";
 
 echo $emp1->getName() . "<br>";
 echo $emp2->getAge() . "<br>";
+echo $emp2->getSalary() . "<br>";
 
 ?>
