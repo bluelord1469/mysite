@@ -18,13 +18,13 @@ public function getAge() { return $this->age; }
 
 public function setAge($age) 
 {
-if ($age >= 18) $this->age = $age;
+if ($this->checkAge($age) == true) $this->age = $age;
 else echo "Вам работать в нашей компании еще рано<br>"; 
 }
 
-public function checkAge() 
+private function checkAge($age) 
 {
-if ($this->age >= 18) return true;
+if ($age >= 18) return true;
 else return false; 
 }
 
@@ -57,9 +57,9 @@ echo $emp2->getSalary() . "<br>";
 
 echo $emp1->getSalarySum($emps) . "<br>";
 
-$emp2->setAge(18);
+$emp2->setAge(17);
 echo $emp2->getAge() . "<br>";
 
-echo "Результат: " . $emp2->checkAge();
+//echo "Результат: " . $emp2->checkAge();
 
 ?>
