@@ -22,6 +22,12 @@ if ($age >= 18) $this->age = $age;
 else echo "Вам работать в нашей компании еще рано<br>"; 
 }
 
+public function checkAge() 
+{
+if ($this->age >= 18) return true;
+else return false; 
+}
+
 public function getSalary() { return $this->salary; }
 
 public function getSalarySum($emps) 
@@ -51,7 +57,9 @@ echo $emp2->getSalary() . "<br>";
 
 echo $emp1->getSalarySum($emps) . "<br>";
 
-$emp2->setAge(17);
+$emp2->setAge(18);
 echo $emp2->getAge() . "<br>";
+
+echo "Результат: " . $emp2->checkAge();
 
 ?>
