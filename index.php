@@ -16,7 +16,11 @@ public function getName() { return $this->name; }
 
 public function getAge() { return $this->age; }
 
-public function setAge($age) { $this->age = $age; }
+public function setAge($age) 
+{
+if ($age >= 18) $this->age = $age;
+else echo "Вам работать в нашей компании еще рано<br>"; 
+}
 
 public function getSalary() { return $this->salary; }
 
@@ -47,7 +51,7 @@ echo $emp2->getSalary() . "<br>";
 
 echo $emp1->getSalarySum($emps) . "<br>";
 
-$emp2->setAge(18);
+$emp2->setAge(17);
 echo $emp2->getAge() . "<br>";
 
 ?>
